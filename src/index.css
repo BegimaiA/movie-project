@@ -12,7 +12,7 @@ img{
 }
 a{
     text-decoration: none;
-    color: inherit;
+    color: #fff;
     font-size: 16px;
 }
 
@@ -28,7 +28,7 @@ a{
     margin: 0  -15px;
 }
 .col-3 {
-    width: 33.3333%;
+    width: 25%;
     padding: 0 15px;
 }
 .col-6{
@@ -71,4 +71,20 @@ a{
 }
 .actors-img{
     border-radius: 10px;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+.header-link{
+    margin-left: 25px;
+    font-size: 25px;
+    color: #fff;
+}
+.fa-film{
+    font-size: 30px;
+    color: white;
+    padding-top: 7px;
 }

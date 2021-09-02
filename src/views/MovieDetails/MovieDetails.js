@@ -32,6 +32,7 @@ const MovieDetails = () => {
                     <h4 className="movieDetails-title">Overview:</h4>
                     <p className="movie-desc">{film.overview}</p>
                     <p className="movie-desc">Runtime: {film.runtime} min.</p>
+                    <p className="movie-desc">Original language: {film.original_language}</p>
                 </div>
             </div>
             <div className="row">
