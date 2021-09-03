@@ -8,7 +8,7 @@ import ActorDetails from "./views/Actors/ActorDetails";
 
 function App() {
   return (
-    <div className="container" >
+    <div className="container-fluid" >
      <Router >
          <Route exact path="/"> <HomePage/>  </Route>
        <Route exact path="/movies"> <Movies /> </Route>

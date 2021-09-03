@@ -11,7 +11,6 @@ const ActorDetails = () => {
             .then(res => setActor(res.data))
     }, [])
 
-
     return (
        <div className="movieDetails-section">
            <div className="row">
@@ -24,6 +23,8 @@ const ActorDetails = () => {
                    <h6 className="actor-desc">Date of birth: {actor.birthday}</h6>
                    <h6 className="actor-desc">Place of birth: {actor.place_of_birth}</h6>
                </div>
+               <h6 className="actor-desc">Known for: {actor.known_for_department}</h6>
+               <h6 className="actor-desc">Also Known as: {actor.also_known_as?.map(el=><p>{el}</p>)}</h6>
            </div>
        </div>
     );
