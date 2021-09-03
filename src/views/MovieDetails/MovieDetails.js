@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 const MovieDetails = () => {
     const [film, setFilm] = useState({})
@@ -20,7 +20,7 @@ const MovieDetails = () => {
 
 
     return (
-        <div>
+        <div className="movieDetails-section">
             <div className="row">
                 <div className="col-5">
                     <img className="movieDetails-img"
@@ -28,11 +28,18 @@ const MovieDetails = () => {
                 </div>
                 <div className="col-7">
                     <h2 className="movieDetails-title">{film.title}</h2>
+                    {
+                        film.genres?.map(el=>
+                        <span className="mx-2 text-white my-3">{el.name}</span>
+                        )
+                    }
                     <h5 className="movieDetails-title">{film.tagline}</h5>
                     <h4 className="movieDetails-title">Overview:</h4>
                     <p className="movie-desc">{film.overview}</p>
-                    <p className="movie-desc">Runtime: {film.runtime} min.</p>
                     <p className="movie-desc">Original language: {film.original_language}</p>
+                    <p className="movie-desc">Budget: {film.budget} $</p>
+                    <p className="movie-desc">Release date: {film.release_date}</p>
+                    <p className="movie-desc">Runtime: {Math.floor(film.runtime / 60)}h. {film.runtime % 60}min.</p>
                 </div>
             </div>
             <div className="row">
@@ -40,16 +47,19 @@ const MovieDetails = () => {
                 {
                     actors.map(el =>
                         <div className="col-2">
-                            <h6 className="actors-title">{el.name}</h6>
-                            {
-                                el.profile_path === null ? <img
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdKWZWjdveWsV0r5IOtdTPxqoCVvgCzr82MA&usqp=CAU"
-                                      height="330"  alt=""/>
-                                                    :
-                                    <img className="actors-img"
-                                         src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${el.profile_path}`}
-                                         alt=""/>
-                            }
+                            <Link to={`/actors/${el.id}`}>
+                                {
+                                    el.profile_path === null ? <img
+                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdKWZWjdveWsV0r5IOtdTPxqoCVvgCzr82MA&usqp=CAU"
+                                            height="330" alt=""/>
+                                        :
+                                        <img className="actors-img"
+                                             src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${el.profile_path}`}
+                                             alt=""/>
+                                }
+                                <h6 className="actors-title">{el.name}</h6>
+                                <h6 className="actors-title">{el.character}</h6>
+                            </Link>
                         </div>
                     )}
             </div>
