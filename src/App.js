@@ -5,8 +5,7 @@ import HomePage from "./views/Home";
 import ActorDetails from "./views/ActorDetails";
 import ActorsList from "./views/ActorsList";
 import Header from "./components/Header";
-import Search from "./components/Search";
-
+import Search from "./views/Search"
 
 function App() {
   return (
