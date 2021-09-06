@@ -9,6 +9,7 @@ const ActorDetails = () => {
     const [actor, setActor] = useState({})
     const [acting, setActing] = useState([])
     const resultActing = acting.filter(el => el.release_date).sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
+    const resultActingUnordered = acting.filter(el => !el.release_date)
     const resultKnownfor = acting.sort((a, b) => b.popularity - a.popularity)
     const params = useParams()
     useEffect(() => {
@@ -43,6 +44,20 @@ const ActorDetails = () => {
                             )}
                     </OwlCarousel>
                     <h5 className="actor-desc">Acting:</h5>
+                    {
+                        resultActingUnordered.map(el=>
+                            <div className="d-flex">
+                                <div>
+                                    <h6 className="actor-desc me-5">--</h6>
+                                </div>
+                                <div>
+                                    <Link to={`/movies/${el.id}`}>
+                                        <h6 className="actor-desc ml-5">{el.title}</h6>
+                                    </Link>
+                                </div>
+                            </div>
+                        )
+                    }
                     {
                         resultActing.map(el =>
                             <div className="d-flex">

@@ -11,7 +11,7 @@ function App() {
   return (
       <Router >
         <Header/>
-        <div className="container" >
+        <div>
                 <Route exact path="/"> <HomePage/>  </Route>
                 <Route exact path="/movies"> <Movies /> </Route>
                 <Route path="/movies/:id"> <MovieDetails /> </Route>

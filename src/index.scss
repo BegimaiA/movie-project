@@ -11,7 +11,12 @@ body{
     background-color: #4484c4;
 }
 .movieDetails-section{
-    padding-top: 20px;
+    //padding-top: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.59);
+    background-size: cover;
+    height: 500%;
 }
 .movie-section{
     padding-top: 60px;
