@@ -14,8 +14,9 @@ body{
     //padding-top: 20px;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.59);
+    background-color: rgba(0, 0, 0, 0.7);
     background-size: cover;
+    background-blend-mode: color-burn;
     height: 500%;
 }
 .movie-section{
@@ -108,4 +109,15 @@ a{
 .actor-desc{
     color: #fff;
     font-size: 16px;
+}
+.header-btn{
+    border-radius: 15px;
+    padding: 10px 26px;
+    background: linear-gradient(to right, rgba(var(--tmdbLightGreen), 1) 0%, rgba(var(--tmdbLightBlue), 1) 100%);
+}
+.input{
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: 5px;
 }

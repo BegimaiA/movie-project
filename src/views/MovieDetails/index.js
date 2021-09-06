@@ -68,42 +68,42 @@ const MovieDetails = () => {
                                 <div key={country.id} className="movie-desc">{country.name}</div>)
                         }
 
-                        <div className="col-md-8">
-                            <OwlCarousel className='owl-theme' loop margin={10} dots={false}>
-                                {
-                                    actors?.slice(0, visible).map(el =>
-                                        <Link to={`/actors/${el.id}`}>
-                                            {
-                                                el.profile_path === null ? <img
-                                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdKWZWjdveWsV0r5IOtdTPxqoCVvgCzr82MA&usqp=CAU"
-                                                        alt=""/>
-                                                    :
-                                                    <img className="actors-img"
-                                                         src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${el.profile_path}`}
-                                                         alt=""/>
-                                            }
-                                            <h6 className="actors-title">{el.name}</h6>
-                                            <h6 className="actors-title">{el.character}</h6>
-                                        </Link>
-                                    )}
-                                {
-                                    <Link to={`/cast/${params.id}`} >
-                                        View more
-                                    </Link>
-                                }
-                                {/*<button className=" btn btn-primary me-2 my-3 text-white text-center" onClick={showMoreItems}>View more</button>*/}
-                            </OwlCarousel>
 
-
-                        </div>
                     </div>
             </div>
-                {
-                    trailers.map(el=>
-                        <Trailers key={el.key} id={el.key}/>)
-                }
+
             </div>
 
+        <div className="container ">
+            <OwlCarousel className='owl-theme mt-5' loop margin={10} dots={false} items={7}>
+                {
+                    actors?.slice(0, visible).map(el =>
+                        <Link to={`/actors/${el.id}`}>
+                            {
+                                el.profile_path === null ? <img
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdKWZWjdveWsV0r5IOtdTPxqoCVvgCzr82MA&usqp=CAU"
+                                        alt=""/>
+                                    :
+                                    <img className="actors-img"
+                                         src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${el.profile_path}`}
+                                         alt=""/>
+                            }
+                            <h6 className="actors-title">{el.name}</h6>
+                            <h6 className="actors-title">{el.character}</h6>
+                        </Link>
+                    )}
+                {
+                    <Link to={`/cast/${params.id}`}>
+                        View more
+                    </Link>
+                }
+                {/*<button className=" btn btn-primary me-2 my-3 text-white text-center" onClick={showMoreItems}>View more</button>*/}
+            </OwlCarousel>
+            {
+                trailers.map(el=>
+                    <Trailers key={el.key} id={el.key}/>)
+            }
+        </div>
         </div>
     );
 };
