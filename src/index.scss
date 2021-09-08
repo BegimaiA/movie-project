@@ -7,13 +7,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-#root, html, body{
-    height: 100%;
-}
-#root{
-    display: flex;
-    flex-direction: column;
-}
+
 body{
     background-color: #042331;
 }
@@ -37,7 +31,7 @@ ul{
     margin-top: -30px;
 }
 .movie-section{
-    padding-top: 60px;
+    padding-top: 40px;
 }
 img{
     width: 100%;
@@ -113,15 +107,15 @@ transform: scale(1.1);
 .header{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     height: 60px;
     width: 100%;
-    background-color: #051423;
-    position: fixed;
+    background-color: transparent;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 99;
-    margin-bottom: 20px;
+    //    //margin-bottom: 20px;
 }
 .footer{
     color: #fff;
@@ -175,6 +169,10 @@ transform: scale(1.1);
     border: none;
     outline: none;
     padding: 5px;
+    background-color: #898484;
+}
+.input::placeholder{
+    color: #fff;
 }
 .movie-card{
     max-width: calc(100vw - 82px);
@@ -190,7 +188,7 @@ transform: scale(1.1);
 }
 
 .view-more{
-position: absolute;
+    position: absolute;
     top: 0;
     bottom: -224px;
     display: flex;
@@ -213,7 +211,7 @@ position: absolute;
     align-items: center;
     justify-content: center;
 }
-.home-section{
-    z-index: 1000;
-    position: absolute;
-}
+//.home-section{
+//    z-index: 1000;
+//    position: absolute;
+//}

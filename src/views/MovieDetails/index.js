@@ -42,7 +42,7 @@ const MovieDetails = () => {
     }
     return (
         <>
-            <div className="movieDetails-section mt-5" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/original/${film.backdrop_path})`}} >
+            <div className="movieDetails-section" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/original/${film.backdrop_path})`}} >
                 <div className="container">
                     <div className="row minus-row" >
                         <div className="col-md-5">
