@@ -20,13 +20,16 @@ const Search = () => {
     let pageButtons = ""
     if (film.total_pages > 1 && page ===1) {
         pageButtons = <button className="page-btn btn-primary mt-4 text-center" onClick={()=> setPage(page+1)} > Next <i className="fas fa-chevron-right"></i>   </button>
+   window.scrollTo(0, 0)
     } else if (film.total_pages > page && page > 1){
         pageButtons = <div>
             <button className="page-btn btn-primary mt-4 mx-2 text-center" onClick={()=> setPage(page-1)}>  <i className="fas fa-chevron-left"></i> Previous </button>
             <button  className="page-btn btn-primary mt-4 mx-2 text-center" onClick={()=> setPage(page+1)}> Next <i className="fas fa-chevron-right"></i>   </button>
         </div>
+        window.scrollTo(0, 0)
     } else if (film.total_pages === page) {
         pageButtons = <button className="page-btn btn-primary mt-4 text-center"  onClick={()=> setPage(page-1)}> <i className="fas fa-chevron-left"></i>  Previous</button>
+        window.scrollTo(0, 0)
     }
 
     if (loading) {

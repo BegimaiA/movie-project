@@ -72,7 +72,6 @@ const MovieDetails = () => {
 
                 </div>
             </div>
-
          <div className="container">
              <OwlCarousel className='owl-theme mt-5' loop margin={10} dots={false} items={7}>
                  {
