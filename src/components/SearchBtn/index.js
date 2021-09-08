@@ -22,8 +22,8 @@ const SearchBtn = () => {
 
     return (
         <div>
-            <input className="mx-4 input" placeholder="Search..." type="text" onChange={handleInput}  value={search} onKeyPress={handleKeyPress}/>
-            <button className="header-btn btn-primary" onClick={handleClick}>Search</button>
+            <input className="mx-3 input" placeholder="Search..." type="text" onChange={handleInput}  value={search} onKeyPress={handleKeyPress}/>
+            <button className="header-btn btn-primary mx-3" onClick={handleClick}>Search</button>
         </div>
     );
 };

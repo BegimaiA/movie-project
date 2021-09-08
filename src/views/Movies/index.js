@@ -4,10 +4,12 @@ import axios from "axios"
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Spinner from "../../components/Spinner";
 
 const Movies = () => {
     const [page, setPage] = useState(1)
     const [movies, setMovies] = useState([])
+    const [loading, setLoading] = useState(true)
     const [moviesDate, setMoviesDate] = useState([])
     const handleClick = (pageNumber) => {
         setPage(pageNumber)
@@ -15,12 +17,20 @@ const Movies = () => {
 
     useEffect(() => {
         axios(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&page=${page}&api_key=ff9e9d0130b0f3c796f426d2bd9285c3`)
-            .then(res => setMovies(res.data.results))
+            .then(res => {
+                setMovies(res.data.results)
+                setLoading(false)
+            })
+
         axios(`https://api.themoviedb.org/3/discover/movie?sort_by=release_desc.asc&page=${page}&api_key=ff9e9d0130b0f3c796f426d2bd9285c3`)
             .then(res => setMoviesDate(res.data.results))
 
 
     }, [page])
+
+    if (loading) {
+        return <Spinner/>
+    }
 
     return (
         <div>
@@ -28,7 +38,7 @@ const Movies = () => {
                 {
                     movies.map(el =>
                         <div key={el.id} className="movieDetails-section" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/original/${el.backdrop_path})`}}>
-                            <Link to={`/movies/${el.id}`}>
+                            <Link to={`/${el.id}`}>
                                 <div className="container">
                                     <div className="row minus-row" >
                                         <div className="col-md-4">
@@ -37,6 +47,7 @@ const Movies = () => {
                                         </div>
                                         <div className="col-5">
                                             <h2 className="mt-3">{el.original_title}</h2>
+                                            <p className="mt-3">{el.overview}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -44,8 +55,6 @@ const Movies = () => {
                             </Link>
                         </div>
                     )}
-
-
 
             </OwlCarousel>
             <div className="movie-section container">
