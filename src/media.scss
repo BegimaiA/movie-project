@@ -1,0 +1,26 @@
+@media (max-width: 768px) {
+  .movie-desc {
+    font-size: 10px;
+  }
+  .movieDetails-title {
+    font-size: 1.1rem;
+  }
+  .actors-title {
+    font-size: 1px;
+  }
+  .view-more {
+    display: block;
+  }
+  .image {
+    display: none;
+  }
+  .movie-card {
+    height: 280px;
+  }
+  .movieDetails-img {
+    width: 251px;
+  }
+  .header-btn {
+    padding: 5px 15px;
+  }
+}

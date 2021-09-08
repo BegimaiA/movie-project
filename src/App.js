@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import Search from "./views/SearchResult"
 import Footer from "./components/Footer";
 import "./index.scss"
+import "./media.scss"
 
 
 function App() {
