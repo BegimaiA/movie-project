@@ -126,7 +126,8 @@ transform: scale(1.1);
 .footer{
     color: #fff;
     background-color: #051423;
-    width: 100%;
+    max-width: 100%;
+    width:100vw ;
     position: absolute;
     bottom: 0;
     left: 0;

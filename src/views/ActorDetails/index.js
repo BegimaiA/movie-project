@@ -46,26 +46,26 @@ const ActorDetails = () => {
                             )}
                     </OwlCarousel>
                     <h5 className="actor-desc">Acting:</h5>
-                   <OwlCarousel className='owl-theme' loop margin={10} dots={false} items={4} >
+
                        {
                            resultActingUnordered.map(el=>
-                               <div className="" key={el.id}>
-                                       <h6 className="actor-desc me-5">--</h6>
+                               <div className="d-flex" key={el.id}>
+                                       <h6 className="actor-desc me-5">---</h6>
                                        <Link to={`/movies/${el.id}`}>
-                                           <h6 className="actor-desc">{el.title}</h6>
+                                           <h6 className="actor-desc mx-3">{el.title}</h6>
                                        </Link>
                                </div>
                            )}
                        {
                            resultActing.map(el =>
-                               <div className="">
+                               <div className="d-flex">
                                        <h6 className="actor-desc me-5">{el.release_date.slice(0, 4)}</h6>
                                        <Link to={`/movies/${el.id}`}>
                                            <h6 className="actor-desc">{el.title}</h6>
                                        </Link>
                                </div>
                            )}
-                   </OwlCarousel>
+
                 </div>
             </div>
         </div>
