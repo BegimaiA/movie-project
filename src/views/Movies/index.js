@@ -11,7 +11,6 @@ const Movies = () => {
     const [page, setPage] = useState(1)
     const [movies, setMovies] = useState([])
     const [loading, setLoading] = useState(true)
-    const [moviesDate, setMoviesDate] = useState([])
     const handleClick = (pageNumber) => {
         setPage(pageNumber)
     }
@@ -22,10 +21,6 @@ const Movies = () => {
                 setMovies(res.data.results)
                 setLoading(false)
             })
-
-        axios(`https://api.themoviedb.org/3/discover/movie?sort_by=release_desc.asc&page=${page}&api_key=ff9e9d0130b0f3c796f426d2bd9285c3`)
-            .then(res => setMoviesDate(res.data.results))
-
 
     }, [page])
 

@@ -1,7 +1,6 @@
 import Movies from "./views/Movies";
 import {BrowserRouter as Router, Route} from "react-router-dom"
 import MovieDetails from "./views/MovieDetails";
-import HomePage from "./views/Home";
 import ActorDetails from "./views/ActorDetails";
 import ActorsList from "./views/ActorsList";
 import Header from "./components/Header";
@@ -12,7 +11,6 @@ import "./index.scss"
 
 function App() {
   return (
-
             <Router >
                 <Header/>
                 <div className="App">
@@ -24,8 +22,6 @@ function App() {
                 </div>
                 <Footer/>
             </Router>
-
-  );
-}
+  )}
 
 export default App;

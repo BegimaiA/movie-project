@@ -64,8 +64,8 @@ const MovieDetails = () => {
                             <p className="movie-desc">Runtime: {Math.floor(film.runtime / 60)}h. {film.runtime % 60} min.</p>
                             <h5 className="movie-desc">Страны:</h5>
                             {
-                                film.production_countries?.map(country =>
-                                    <div key={country.id} className="movie-desc">{country.name}</div>)
+                                film.production_countries?.map((country, idx) =>
+                                    <div key={idx} className="movie-desc">{country.name}</div>)
                             }
                         </div>
                     </div>
@@ -99,8 +99,10 @@ const MovieDetails = () => {
                  {/*<button className=" btn btn-primary me-2 my-3 text-white text-center" onClick={showMoreItems}>View more</button>*/}
              </OwlCarousel>
              {
-                 trailers.map(el=>
-                     <Trailers key={el.key} id={el.key}/>)
+                 trailers.map((el, idx)=>
+                    <div key={idx}>
+                        <Trailers  id={el.key}/>
+                    </div>)
              }
          </div>
            </>

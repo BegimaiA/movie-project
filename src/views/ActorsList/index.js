@@ -21,8 +21,8 @@ const ActorsList = () => {
       <div className="container">
           <div className="row mt-5 movie-section">
               {
-                  actorsList?.map(el =>
-                      <Link to={`/actors/${el.id}`} className="col-2 mt-4">
+                  actorsList?.map((el, idx) =>
+                      <Link to={`/actors/${el.id}`} className="col-2 mt-4" key={idx}>
                           {
                               el.profile_path === null ? <img
                                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdKWZWjdveWsV0r5IOtdTPxqoCVvgCzr82MA&usqp=CAU"

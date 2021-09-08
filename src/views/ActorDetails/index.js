@@ -4,7 +4,7 @@ import {Link, useParams} from "react-router-dom"
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import Footer from "../../components/Footer";
+
 
 const ActorDetails = () => {
     const [actor, setActor] = useState({})
@@ -21,7 +21,7 @@ const ActorDetails = () => {
         axios(`https://api.themoviedb.org/3/person/${params.id}/movie_credits?api_key=ff9e9d0130b0f3c796f426d2bd9285c3&language=en-US`)
             .then(res => setActing(res.data.cast))
 
-    }, [])
+    }, [params.id])
 
     return (
         <>
