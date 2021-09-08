@@ -5,6 +5,7 @@ import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Spinner from "../../components/Spinner";
+import Rating from "../../components/Rating";
 
 const Movies = () => {
     const [page, setPage] = useState(1)
@@ -41,17 +42,18 @@ const Movies = () => {
                             <Link to={`/${el.id}`}>
                                 <div className="container">
                                     <div className="row minus-row" >
-                                        <div className="col-md-4">
-                                            <img className="movieDetails-img" width={100} height={500}
+                                        <div className="col-md-4 mt-5">
+                                            <img className="movieCarousel-img" width={100} height={500}
                                                  src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${el.poster_path}`} alt=""/>
                                         </div>
-                                        <div className="col-5">
+                                        <div className="col-5 mt-5">
                                             <h2 className="mt-3">{el.original_title}</h2>
                                             <p className="mt-3">{el.overview}</p>
+                                            <p className="">Rating: {el.vote_average}</p>
+                                            <Rating rating={el.vote_average}/>
                                         </div>
                                     </div>
                                 </div>
-
                             </Link>
                         </div>
                     )}

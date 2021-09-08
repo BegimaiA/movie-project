@@ -4,6 +4,7 @@ import {Link, useParams} from "react-router-dom"
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Footer from "../../components/Footer";
 
 const ActorDetails = () => {
     const [actor, setActor] = useState({})
@@ -23,6 +24,7 @@ const ActorDetails = () => {
     }, [])
 
     return (
+        <>
         <div className=" container movie-section">
             <div className="row mt-5">
                 <div className="col-md-5">
@@ -51,7 +53,7 @@ const ActorDetails = () => {
                            resultActingUnordered.map(el=>
                                <div className="d-flex" key={el.id}>
                                        <h6 className="actor-desc me-5">---</h6>
-                                       <Link to={`/movies/${el.id}`}>
+                                       <Link to={`/${el.id}`}>
                                            <h6 className="actor-desc mx-3">{el.title}</h6>
                                        </Link>
                                </div>
@@ -60,7 +62,7 @@ const ActorDetails = () => {
                            resultActing.map(el =>
                                <div className="d-flex">
                                        <h6 className="actor-desc me-5">{el.release_date.slice(0, 4)}</h6>
-                                       <Link to={`/movies/${el.id}`}>
+                                       <Link to={`/${el.id}`}>
                                            <h6 className="actor-desc">{el.title}</h6>
                                        </Link>
                                </div>
@@ -69,6 +71,7 @@ const ActorDetails = () => {
                 </div>
             </div>
         </div>
+            </>
     );
 };
 
