@@ -11,6 +11,7 @@ const SearchBtn = () => {
     const handleClick = () => {
         if (search.trim()) {
             history.push(`/search/${search}`)
+            setSearch("")
         }
     }
     const handleKeyPress = (e) => {

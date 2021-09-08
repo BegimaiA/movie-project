@@ -18,24 +18,26 @@ const ActorsList = () => {
     },[params.id])
 
     return (
-       <div className="row mt-5">
-               {
-                   actorsList?.map(el =>
-                       <Link to={`/actors/${el.id}`} className="col-2">
-                           {
-                               el.profile_path === null ? <img
-                                       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdKWZWjdveWsV0r5IOtdTPxqoCVvgCzr82MA&usqp=CAU"
+      <div className="container">
+          <div className="row mt-5 movie-section">
+              {
+                  actorsList?.map(el =>
+                      <Link to={`/actors/${el.id}`} className="col-2 mt-4">
+                          {
+                              el.profile_path === null ? <img
+                                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdKWZWjdveWsV0r5IOtdTPxqoCVvgCzr82MA&usqp=CAU"
+                                      alt=""/>
+                                  :
+                                  <img className="actors-img"
+                                       src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${el.profile_path}`}
                                        alt=""/>
-                                   :
-                                   <img className="actors-img"
-                                        src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${el.profile_path}`}
-                                        alt=""/>
-                           }
-                           <h6 className="actors-title">{el.name}</h6>
-                           <h6 className="actors-title">{el.character}</h6>
-                       </Link>
-                   )}
-           </div>
+                          }
+                          <h6 className="actors-title mt-3">{el.name}</h6>
+                          <h6 className="actors-title">{el.character}</h6>
+                      </Link>
+                  )}
+          </div>
+      </div>
     )};
 
 

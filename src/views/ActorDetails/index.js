@@ -11,6 +11,8 @@ const ActorDetails = () => {
     const resultActing = acting.filter(el => el.release_date).sort((a, b) => new Date(b.release_date) - new Date(a.release_date))
     const resultActingUnordered = acting.filter(el => !el.release_date)
     const resultKnownfor = acting.sort((a, b) => b.popularity - a.popularity)
+    const resultBirthday = Object.values(actor).sort((a, b)=> new Date(a) - new Date(b))
+    console.log(resultBirthday)
     const params = useParams()
     useEffect(() => {
         axios(`https://api.themoviedb.org/3/person/${params.id}?api_key=ff9e9d0130b0f3c796f426d2bd9285c3&language=en-US`)
@@ -21,10 +23,10 @@ const ActorDetails = () => {
     }, [])
 
     return (
-        <div className="movieDetails-section">
+        <div className=" container movie-section">
             <div className="row mt-5">
                 <div className="col-md-5">
-                    <img src={`https://www.themoviedb.org/t/p/w1280/${actor.profile_path}`} width={400} alt=""/>
+                    <img src={`https://www.themoviedb.org/t/p/w1280/${actor.profile_path}`} width={400} className="mb-4" alt=""/>
                     <h6 className="actor-desc">Date of birth: {actor.birthday}</h6>
                     <h6 className="actor-desc">Place of birth: {actor.place_of_birth}</h6>
                     <h6 className="actor-desc">Gender: {actor.gender === 1 ? "Female" : actor.gender === 2 ? "Male" : "Undefined"}</h6>
@@ -37,42 +39,33 @@ const ActorDetails = () => {
                     <OwlCarousel className='owl-theme' loop margin={10} dots={false} items={4}>
                         {
                             resultKnownfor.slice(0, 6)?.map(el =>
-                                <div>
+                                <div key={el.id}>
                                     <img src={`https://www.themoviedb.org/t/p/w1280/${el.backdrop_path}`} alt=""/>
                                     <h6 className="actor-desc">{el.original_title}</h6>
                                 </div>
                             )}
                     </OwlCarousel>
                     <h5 className="actor-desc">Acting:</h5>
-                    {
-                        resultActingUnordered.map(el=>
-                            <div className="d-flex">
-                                <div>
-                                    <h6 className="actor-desc me-5">--</h6>
-                                </div>
-                                <div>
-                                    <Link to={`/movies/${el.id}`}>
-                                        <h6 className="actor-desc ml-5">{el.title}</h6>
-                                    </Link>
-                                </div>
-                            </div>
-                        )
-                    }
-                    {
-                        resultActing.map(el =>
-                            <div className="d-flex">
-                                <div>
-                                    <h6 className="actor-desc me-5">{el.release_date.slice(0, 4)}</h6>
-                                </div>
-                                <div>
-                                    <Link to={`/movies/${el.id}`}>
-                                        <h6 className="actor-desc">{el.title}</h6>
-                                    </Link>
-                                </div>
-                            </div>
-                        )}
-
-
+                   <OwlCarousel className='owl-theme' loop margin={10} dots={false} items={4} >
+                       {
+                           resultActingUnordered.map(el=>
+                               <div className="" key={el.id}>
+                                       <h6 className="actor-desc me-5">--</h6>
+                                       <Link to={`/movies/${el.id}`}>
+                                           <h6 className="actor-desc">{el.title}</h6>
+                                       </Link>
+                               </div>
+                           )}
+                       {
+                           resultActing.map(el =>
+                               <div className="">
+                                       <h6 className="actor-desc me-5">{el.release_date.slice(0, 4)}</h6>
+                                       <Link to={`/movies/${el.id}`}>
+                                           <h6 className="actor-desc">{el.title}</h6>
+                                       </Link>
+                               </div>
+                           )}
+                   </OwlCarousel>
                 </div>
             </div>
         </div>

@@ -6,20 +6,25 @@ import ActorDetails from "./views/ActorDetails";
 import ActorsList from "./views/ActorsList";
 import Header from "./components/Header";
 import Search from "./views/Search"
+import Footer from "./components/Footer";
+import "./index.scss"
+
 
 function App() {
   return (
-      <Router >
-        <Header/>
-        <div className="container">
-                <Route exact path="/"> <HomePage/>  </Route>
-                <Route exact path="/movies"> <Movies /> </Route>
-                <Route path="/movies/:id"> <MovieDetails /> </Route>
-                <Route path="/actors/:id"> <ActorDetails /> </Route>
-                <Route path="/cast/:id"> <ActorsList /> </Route>
-                <Route path="/search/:name"> <Search/> </Route>
-        </div>
-      </Router>
+            <Router >
+                <Header/>
+                <div className="App">
+                    <Route exact path="/"> <HomePage/>  </Route>
+                    <Route exact path="/movies"> <Movies /> </Route>
+                    <Route path="/movies/:id"> <MovieDetails /> </Route>
+                    <Route path="/actors/:id"> <ActorDetails /> </Route>
+                    <Route path="/cast/:id"> <ActorsList /> </Route>
+                    <Route path="/search/:name"> <Search/> </Route>
+                </div>
+                <Footer/>
+            </Router>
+
   );
 }
 

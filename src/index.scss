@@ -7,32 +7,55 @@
     padding: 0;
     box-sizing: border-box;
 }
+#root, html, body{
+    height: 100%;
+}
+#root{
+    display: flex;
+    flex-direction: column;
+}
 body{
-    background-color: #4484c4;
+    background-color: #042331;
+}
+li{
+    list-style: none;
+}
+ul{
+    padding: 0;
 }
 .movieDetails-section{
-    //padding-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.7);
     background-size: cover;
-    background-blend-mode: color-burn;
-    height: 500%;
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 100vh;
+}
+.minus-row{
+    margin-top: -30px;
 }
 .movie-section{
     padding-top: 60px;
 }
 img{
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 10px;
+    width: 100%;
+    border-radius: 5px;
+
+}
+.search-img{
+    width: 100px;
+    height: 100%;
 }
 a{
     text-decoration: none;
     color: #fff;
     font-size: 16px;
 }
-
+a:hover{
+    color: #fff;
+}
 .row{
     display: flex;
     flex-wrap: wrap;
@@ -68,11 +91,23 @@ a{
     color: #fff;
 }
 .movieDetails-img{
-    width: 500px;
+    width: 330px;
+}
+.movie-img{
+    transition: 0.6s;
+}
+.movie-img:hover{
+transform: scale(1.1);
 }
 .actors-title{
     color: #fff;
     text-align: center;
+}
+.actors-img{
+    transition: 0.4s;
+}
+.actors-img:hover{
+    transform: scale(1.1);
 }
 
 .header{
@@ -81,12 +116,30 @@ a{
     justify-content: center;
     height: 60px;
     width: 100%;
-    background-color: #03243FFF;
+    background-color: #051423;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 99;
+    margin-bottom: 20px;
 }
+.footer{
+    color: #fff;
+    background-color: #051423;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-top: 10px;
+}
+
+.footer-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 .header-link{
     margin-left: 25px;
     font-size: 25px;
@@ -113,7 +166,7 @@ a{
 }
 .header-btn{
     border-radius: 15px;
-    padding: 10px 26px;
+    padding: 5px 26px;
     background: linear-gradient(to right, rgba(var(--tmdbLightGreen), 1) 0%, rgba(var(--tmdbLightBlue), 1) 100%);
 }
 .input{
@@ -124,6 +177,7 @@ a{
 }
 .movie-card{
     max-width: calc(100vw - 82px);
+    height: 150px;
     border: 1px solid black;
     border-radius: 5px;
     background-color: #efefef;
@@ -133,7 +187,32 @@ a{
     display: flex;
 
 }
-.movie-card .image{
-    min-width: 94px;
-    height: 100%;
+
+.view-more{
+position: absolute;
+    top: 0;
+    bottom: -224px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fa-arrow-right{
+    margin-left: 5px;
+}
+.page-btn{
+    margin-top: 15px;
+    padding: 5px 15px;
+    text-align: center;
+    width: 140px;
+    border-radius: 5px;
+
+}
+.btn-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-section{
+    z-index: 1000;
+    position: absolute;
 }

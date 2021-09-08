@@ -41,70 +41,69 @@ const MovieDetails = () => {
         return <Spinner/>
     }
     return (
-        <div className="mt-5">
-            <div className="container mt-5">
-                <div className="row mt-5 movieDetails-section" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${film.backdrop_path})`}}  >
-                    <div className="col-md-5">
-                        <img className="movieDetails-img"
-                             src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${film.poster_path}`} alt=""/>
+        <>
+            <div className="movieDetails-section mt-5" style={{backgroundImage: `url(https://www.themoviedb.org/t/p/original/${film.backdrop_path})`}} >
+                <div className="container">
+                    <div className="row minus-row" >
+                        <div className="col-md-5">
+                            <img className="movieDetails-img"
+                                 src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${film.poster_path}`} alt=""/>
 
-                    </div>
-                    <div className="col-md-7">
-                        <h2 className="movieDetails-title"> {film.title} </h2>
-                        {film.genres?.map(el =>
-                            <span className="mx-2 text-white my-3">{el.name}</span>
-                        )}
-                        <h5 className="movieDetails-title">{film.tagline}</h5>
-                        <h4 className="movieDetails-title">Overview:</h4>
-                        <p className="movie-desc">{film.overview}</p>
-                        <p className="movie-desc">Original language: {language[film.original_language]}</p>
-                        <p className="movie-desc">Budget: $ {film.budget?.toLocaleString()}</p>
-                        <p className="movie-desc">Revenue: $ {film.revenue?.toLocaleString()}</p>
-                        <p className="movie-desc">Release date: {film.release_date}</p>
-                        <p className="movie-desc">Runtime: {Math.floor(film.runtime / 60)}h. {film.runtime % 60} min.</p>
-                        <h5 className="movie-desc">Страны:</h5>
-                        {
-                            film.production_countries?.map(country =>
-                                <div key={country.id} className="movie-desc">{country.name}</div>)
-                        }
-
-
-                    </div>
-            </div>
-
-            </div>
-
-        <div className="container ">
-            <OwlCarousel className='owl-theme mt-5' loop margin={10} dots={false} items={7}>
-                {
-                    actors?.slice(0, visible).map(el =>
-                        <Link to={`/actors/${el.id}`}>
+                        </div>
+                        <div className="col-md-7">
+                            <h3 className="movieDetails-title"> {film.title} </h3>
+                            {film.genres?.map(el =>
+                                <span className="mx-2 text-white my-3">{el.name}</span>
+                            )}
+                            <h5 className="movieDetails-title">{film.tagline}</h5>
+                            <p className="movieDetails-title">Overview:</p>
+                            <p className="movie-desc">{film.overview}</p>
+                            <p className="movie-desc">Original language: {language[film.original_language]}</p>
+                               <span className="movie-desc">Budget: $ {film.budget?.toLocaleString()}</span>
+                               <span className="movie-desc mx-4 ">Revenue: $ {film.revenue?.toLocaleString()}</span>
+                            <p className="movie-desc">Release date: {film.release_date}</p>
+                            <p className="movie-desc">Runtime: {Math.floor(film.runtime / 60)}h. {film.runtime % 60} min.</p>
+                            <h5 className="movie-desc">Страны:</h5>
                             {
-                                el.profile_path === null ? <img
-                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdKWZWjdveWsV0r5IOtdTPxqoCVvgCzr82MA&usqp=CAU"
-                                        alt=""/>
-                                    :
-                                    <img className="actors-img"
-                                         src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${el.profile_path}`}
-                                         alt=""/>
+                                film.production_countries?.map(country =>
+                                    <div key={country.id} className="movie-desc">{country.name}</div>)
                             }
-                            <h6 className="actors-title">{el.name}</h6>
-                            <h6 className="actors-title">{el.character}</h6>
-                        </Link>
-                    )}
-                {
-                    <Link to={`/cast/${params.id}`}>
-                        View more
-                    </Link>
-                }
-                {/*<button className=" btn btn-primary me-2 my-3 text-white text-center" onClick={showMoreItems}>View more</button>*/}
-            </OwlCarousel>
-            {
-                trailers.map(el=>
-                    <Trailers key={el.key} id={el.key}/>)
-            }
-        </div>
-        </div>
+
+                        </div>
+                    </div>
+                    <OwlCarousel className='owl-theme mt-5' loop margin={10} dots={false} items={7}>
+                        {
+                            actors?.slice(0, visible).map(el =>
+                                <Link to={`/actors/${el.id}`} key={el.id}>
+                                    {
+                                        el.profile_path === null ? <img
+                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdKWZWjdveWsV0r5IOtdTPxqoCVvgCzr82MA&usqp=CAU"
+                                                alt=""/>
+                                            :
+                                            <img className="actors-img"
+                                                 src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${el.profile_path}`}
+                                                 alt=""/>
+                                    }
+                                    <h6 className="actors-title mt-3">{el.name}</h6>
+                                    <h6 className="actors-title">{el.character}</h6>
+                                </Link>
+                            )}
+                        {
+                            <Link to={`/cast/${params.id}`} className="view-more">
+                                View more  <span> <i className="fas fa-arrow-right"></i> </span>
+                            </Link>
+                        }
+                        {/*<button className=" btn btn-primary me-2 my-3 text-white text-center" onClick={showMoreItems}>View more</button>*/}
+                    </OwlCarousel>
+                    {
+                        trailers.map(el=>
+                            <Trailers key={el.key} id={el.key}/>)
+                    }
+                </div>
+
+            </div>
+
+        </>
     );
 };
 export default MovieDetails;
