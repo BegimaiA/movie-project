@@ -3,18 +3,13 @@ import axios from "axios";
 import {Link, useParams} from "react-router-dom";
 
 const ActorsList = () => {
-    const [film, setFilm] = useState({})
+
     const [actorsList, setActorsList] = useState([])
     const params = useParams()
 
     useEffect(()=> {
-        axios(`https://api.themoviedb.org/3/movie/${params.id}?&language=en-US&api_key=ff9e9d0130b0f3c796f426d2bd9285c3`)
-            .then(res => {
-                setFilm(res.data)
-
-                axios(`https://api.themoviedb.org/3/movie/${params.id}/credits?&language=en-US&page=1&api_key=ff9e9d0130b0f3c796f426d2bd9285c3`)
-                    .then(res => setActorsList(res.data.cast))
-            })
+        axios(`https://api.themoviedb.org/3/movie/${params.id}/credits?&language=en-US&page=1&api_key=ff9e9d0130b0f3c796f426d2bd9285c3`)
+            .then(res => setActorsList(res.data.cast))
     },[params.id])
 
     return (
