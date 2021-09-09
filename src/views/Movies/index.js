@@ -37,11 +37,11 @@ const Movies = () => {
                             <Link to={`/${el.id}`}>
                                 <div className="container">
                                     <div className="row minus-row" >
-                                        <div className="col-md-4 mt-5">
+                                        <div className="col-md-4 col-sm-6 mt-3">
                                             <img className="movieCarousel-img" width={100} height={500}
                                                  src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${el.poster_path}`} alt=""/>
                                         </div>
-                                        <div className="col-5 mt-5">
+                                        <div className="col-md-5 col-sm-5 mt-3">
                                             <h2 className="mt-3">{el.original_title}</h2>
                                             <p className="mt-3">{el.overview}</p>
                                             <p className="">Rating: {el.vote_average}</p>

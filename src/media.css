@@ -8,7 +8,7 @@
   }
 
   .actors-title {
-    font-size: 1px;
+    font-size: 8px;
   }
 
   .view-more {
@@ -29,6 +29,22 @@
 
   .header-btn {
     padding: 5px 15px;
+  }
+
+  .input {
+    width: 90px;
+  }
+
+  .fa-film {
+    font-size: 30px;
+  }
+
+  .header-btn {
+    padding: 2px 15px;
+  }
+
+  .movieCarousel-img {
+    width: 150px;
   }
 }
 
