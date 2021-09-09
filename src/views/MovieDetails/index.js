@@ -14,7 +14,6 @@ const MovieDetails = () => {
     const [actorsLoading, setActorsLoading] = useState(true)
     const [actors, setActors] = useState([])
     const [trailers, setTrailers] = useState([])
-    const [visible, setVisible] = useState(6)
     const params = useParams()
 
     useEffect(() => {
@@ -33,9 +32,7 @@ const MovieDetails = () => {
 
     }, [params.id])
 
-    // const showMoreItems = () => {
-    //     setVisible((prevValue) => prevValue + 10)
-    // }
+
 
     if (isLoading && actorsLoading) {
         return <Spinner/>
@@ -75,7 +72,7 @@ const MovieDetails = () => {
          <div className="container">
              <OwlCarousel className='owl-theme mt-5' loop margin={10} dots={false} items={7}>
                  {
-                     actors?.slice(0, visible).map(el =>
+                     actors?.slice(0, 6).map(el =>
                          <Link to={`/actors/${el.id}`} key={el.id}>
                              {
                                  el.profile_path === null ? <img
