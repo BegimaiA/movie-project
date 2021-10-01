@@ -27,7 +27,6 @@ const Movies = () => {
     if (loading) {
         return <Spinner/>
     }
-
     return (
         <div>
             <OwlCarousel className='owl-theme' loop margin={10} dots={false} autoplay={true} items={1}>

@@ -6,9 +6,11 @@ const Trailers = ({id}) => {
     const [isOpen, setOpen] = useState(false)
 
     return (
-        <div>
-            <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={id} onClose={() => setOpen(false)} />
-            <button className="btn-primary video-btn mt-2" onClick={()=> setOpen(true)}>VIDEO</button>
+        <div className="row">
+            <div className="col-6">
+                <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId={id} onClose={() => setOpen(false)} />
+                <button className="btn-primary video-btn mt-2" onClick={()=> setOpen(true)}>VIDEO</button>
+            </div>
         </div>
 
     )};
