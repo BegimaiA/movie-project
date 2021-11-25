@@ -7,7 +7,7 @@ const Footer = () => {
                   <div className="">
                       <h5>TMDB</h5>
                       <ul>
-                          <li>About</li>
+                          <li>About us</li>
                           <li>Support Forums</li>
                       </ul>
                   </div>

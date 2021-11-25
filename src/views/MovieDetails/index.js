@@ -8,6 +8,7 @@ import Spinner from "../../components/Spinner";
 import Trailers from "../../components/Trailers";
 import {language} from "../../components/Language";
 
+
 const MovieDetails = () => {
     const [film, setFilm] = useState({})
     const [isLoading, setIsLoading] = useState(true)
@@ -29,7 +30,6 @@ const MovieDetails = () => {
             })
         axios(`https://api.themoviedb.org/3/movie/${params.id}/videos?api_key=ff9e9d0130b0f3c796f426d2bd9285c3&language=en-US`)
             .then(res => setTrailers(res.data.results))
-
     }, [params.id])
 
 

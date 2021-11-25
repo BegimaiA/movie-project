@@ -48,7 +48,6 @@ const ActorDetails = () => {
                             )}
                     </OwlCarousel>
                     <h5 className="actor-desc">Acting:</h5>
-
                        {
                            resultActingUnordered.map(el=>
                                <div className="d-flex" key={el.id}>
