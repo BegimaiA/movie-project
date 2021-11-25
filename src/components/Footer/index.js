@@ -15,7 +15,7 @@ const Footer = () => {
                       <h5>Contacts</h5>
                       <ul>
                           <li>USA, California, Berkley</li>
-                          <li>200 North District</li>
+                          <li>204 North District</li>
                       </ul>
                   </div>
                   <div className="">
