@@ -22,7 +22,7 @@ const Footer = () => {
                       <h5>Legal</h5>
                       <ul>
                           <li>Terms of use</li>
-                          <li>Privacy policy</li>
+                          <li>Privacy terms</li>
                       </ul>
                   </div>
               </div>
